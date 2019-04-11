@@ -1,6 +1,6 @@
-# Judul Proyek
+# Judul Proyek Ionic
 
-Studiology
+Studiology 
 
 ## Cara clone
 ```
