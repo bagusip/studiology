@@ -6,21 +6,24 @@
   </div>
 </div>
 
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Studiology
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
 <ion-content padding>
-  <!-- Ini adalah project Studiology.
-  <p> 
-    <br>Designed and created by:</br>
-    <br>- Bagus Indiarto</br>
-    <br>- Aditiya Maulana</br>
-    <br>- Rizky Bramantyo</br>
-    <br>- Yosia Wangsajaya</br>
-  </p> -->
+  <ion-content>
+    <ion-slides pager>
+      <ion-slide style="background-color: beige">
+        <i class="fas fa-angry" style="font-size: 10em; color:black;"></i>
+        <h2>Slide 1</h2>
+      </ion-slide>
+      <ion-slide style="background-color:cadetblue">
+        <i class="fas fa-ambulance" style="font-size: 10em; color:black;"></i>
+       <h2>Slide 2</h2>
+      </ion-slide>
+      <ion-slide style="background-color:aquamarine">
+        <i class="fas fa-archive" style="font-size: 10em; color:black;"></i>
+        <h2>Slide 3</h2>
+        <button ion-button clear (click)="toLoginPage()">LOGIN</button>
+        <button ion-button clear (click)="toRegisterPage()">REGISTER</button>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
 </ion-content>
