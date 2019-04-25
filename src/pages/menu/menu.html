@@ -5,11 +5,40 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>menu</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Dashboard</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+<ion-grid>
+  <ion-row>
+    <ion-col col-6>
+      <ion-card text-center padding color="danger">
+         <ion-icon name="person"></ion-icon>
+         <h2>Profile</h2>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+          <ion-card text-center padding color="danger">
+             <ion-icon name="locate"></ion-icon>
+             <h2>Find Studio</h2>
+            </ion-card>
+          </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col col-6>
+          <ion-card text-center padding color="danger">
+             <ion-icon name="calendar"></ion-icon>
+             <h2>Schedule</h2>
+            </ion-card>
+          </ion-col>
+          <ion-col col-6>
+              <ion-card text-center padding color="danger">
+                 <ion-icon name="people"></ion-icon>
+                 <h2>About Us</h2>
+                </ion-card>
+              </ion-col>
+        </ion-row>
+</ion-grid>
 </ion-content>
