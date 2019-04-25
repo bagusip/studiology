@@ -9,7 +9,9 @@ import { AngularFireModule } from '@angular/fire';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from './../pages/register/register';
+import { MenuPage } from './../pages/menu/menu'
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { HttpModule } from '@angular/http'
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @NgModule({
@@ -17,19 +19,22 @@ import { AngularFireAuth } from '@angular/fire/auth';
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MenuPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FIREBASE_CONFIG)
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MenuPage
   ],
   providers: [
     StatusBar,
