@@ -10,17 +10,19 @@
 <ion-content padding>
   <ion-content>
     <ion-slides pager>
-      <ion-slide style="background-color: beige">
+      <!-- untuk mengganti slide pada saat setelah logo muncul -->
+      <ion-slide style="background-image: url(../../assets/Studiology_Start_01.png); background-size: cover;">
         <i class="fas fa-angry" style="font-size: 10em; color:black;"></i>
-        <h2>Slide 1</h2>
+        <!-- <h2>Slide 1</h2> -->
       </ion-slide>
-      <ion-slide style="background-color:cadetblue">
+      <ion-slide style="background-image: url(../../assets/Studiology_Start_02.png); background-size: cover;">
         <i class="fas fa-ambulance" style="font-size: 10em; color:black;"></i>
-       <h2>Slide 2</h2>
+       <!-- <h2>Slide 2</h2> -->
       </ion-slide>
-      <ion-slide style="background-color:aquamarine">
+      <ion-slide style="background-color: #f36722">
         <i class="fas fa-archive" style="font-size: 10em; color:black;"></i>
-        <h2>Slide 3</h2>
+        <!-- <h2>Slide 3</h2> -->
+        <img src="../../assets/Studiology-white.png">
         <button ion-button clear (click)="toLoginPage()">LOGIN</button>
         <button ion-button clear (click)="toRegisterPage()">REGISTER</button>
       </ion-slide>
