@@ -4,6 +4,8 @@ import { User } from '../../models/user';
 import { RegisterPage } from '../register/register';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MenuPage } from '../menu/menu';
+
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 /**
  * Generated class for the LoginPage page.
  *
@@ -28,20 +30,22 @@ export class LoginPage {
   }
 
 async login(user: User){
-//   try {
-//     const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+  console.log(this.user);
+  try {
+    const result = this.afAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password);
     
-//     if (result) {
-//       this.navCtrl.setRoot('MenuPage');
-//     }  
-//   }
-//   catch (e) {
-//     console.error(e);
-// }
-  this.navCtrl.setRoot(MenuPage);
+    if (result) {
+      this.navCtrl.setRoot(MenuPage);
+    }  
+  }
+  catch (e) {
+    console.error(e);
+}
+  // this.navCtrl.setRoot(MenuPage);
 }
 
   register(){
-    this.navCtrl.push('RegisterPage')
+    this.navCtrl.setRoot(RegisterPage);
   }
+  
 }

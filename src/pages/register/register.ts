@@ -37,4 +37,8 @@ export class RegisterPage {
   }
   }
 
+  cancel(){
+    this.navCtrl.setRoot(LoginPage);
+  }
+
 }
