@@ -1,13 +1,7 @@
+import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { RegisterPage } from '../register/register';
-/**
- * Generated class for the MenuPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -23,9 +17,13 @@ export class MenuPage {
     console.log('ionViewDidLoad MenuPage');
   }
 
-  async logout(){
-    this.afAuth.auth.signOut();
-    this.navCtrl.setRoot(RegisterPage);
+  logout(){
+    this.signOut();
+    this.navCtrl.setRoot(LoginPage);
+  }
+
+  signOut(): Promise<void>{
+    return this.afAuth.auth.signOut();
   }
 
 }

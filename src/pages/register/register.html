@@ -12,34 +12,30 @@
 
 <ion-content padding>
         <ion-item>
-        <ion-label>First Name</ion-label>
+        <ion-label  position="floating" color="primary" >First Name</ion-label>
         <ion-input type="text" [(ngModel)]="user.first_name"></ion-input> 
         </ion-item>
 
             <ion-item>
-            <ion-label>Last Name</ion-label>
+            <ion-label  position="floating" color="primary">Last Name</ion-label>
             <ion-input type="text" [(ngModel)]="user.last_name"></ion-input> 
             </ion-item>
 
         <ion-item>
-        <ion-label>E-Mail</ion-label>
+        <ion-label  position="floating" color="primary">E-Mail</ion-label>
         <ion-input type="text" [(ngModel)]="user.email"></ion-input> 
         </ion-item>
 
         <ion-item>
-        <ion-label>Phone Number</ion-label>
+        <ion-label  position="floating" color="primary">Phone Number</ion-label>
         <ion-input type="text" [(ngModel)]="user.phone_number"></ion-input> 
         </ion-item>
       
         <ion-item>
-        <ion-label>Password</ion-label>
+        <ion-label  position="floating" color="primary">Password</ion-label>
         <ion-input type="password" [(ngModel)]="user.password"></ion-input> 
         </ion-item>
     
-        <ion-item>
-        <ion-label>Re-Password</ion-label>
-        <ion-input type="password" [(ngModel)]="user.password"></ion-input> 
-        </ion-item>
         
             <button ion-button (click)="register()">Register</button>
             <button ion-button (click)="cancel()">Cancel</button>
