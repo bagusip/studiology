@@ -11,6 +11,12 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from './../pages/register/register';
 import { MenuPage } from './../pages/menu/menu'
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ProfilePage } from './../pages/profile/profile';
+import { FindstudioPage } from './../pages/findstudio/findstudio';
+import { SchedulePage } from './../pages/schedule/schedule';
+import { AboutusPage } from './../pages/aboutus/aboutus';
+
+
 import { HttpModule } from '@angular/http'
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -20,7 +26,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
     HomePage,
     LoginPage,
     RegisterPage,
-    MenuPage
+    MenuPage,
+    ProfilePage,
+    FindstudioPage,
+    SchedulePage,
+    AboutusPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +44,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
     HomePage,
     LoginPage,
     RegisterPage,
-    MenuPage
+    MenuPage,
+    ProfilePage,
+    FindstudioPage,
+    SchedulePage,
+    AboutusPage
   ],
   providers: [
     StatusBar,
