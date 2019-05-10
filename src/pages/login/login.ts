@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { RegisterPage } from '../register/register';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -16,30 +16,48 @@ export class LoginPage {
 
   user = {} as User;
 
-  constructor(private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertCtrl: AlertController, public loadingCtrl: LoadingController, private toastController : ToastController, private afAuth : AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-async login(user: User){
-  console.log(this.user);
-  try {
-    const result = this.afAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password);
-    
-    if (result) {
-      this.navCtrl.setRoot(MenuPage);
-    }  
-  }
-  catch (e) {
-    console.error(e);
+  alert(message: string) {
+    this.alertCtrl.create({
+      title: 'Info!',
+      subTitle: message,
+      buttons: ['OK']
+    }).present();
 }
-  // this.navCtrl.setRoot(MenuPage);
+
+  failedLogin = this.toastController.create({
+    message:"Login Tidak Berhasil",
+    duration:2000
+  });
+
+async login(user: User){
+  var loader = this.loadingCtrl.create({
+          content: "Please wait..."
+        });
+// loader.present();
+  console.log(this.user);
+ 
+    this.afAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password)
+    .then( data => {
+      console.log('got some data', this.afAuth.auth.currentUser);
+      this.alert('Success! You\'re logged in');
+      this.navCtrl.setRoot(MenuPage);
+    })
+    .catch(error =>{
+      console.log('got an error', error);
+      this.alert(error.message);
+    })
+    console.log('would sign in with',this.user.email,this.user.password);
 }
 
   register(){
     this.navCtrl.setRoot(RegisterPage);
   }
-  
+
 }
