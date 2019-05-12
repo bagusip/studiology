@@ -15,6 +15,7 @@ import { ProfilePage } from './../pages/profile/profile';
 import { FindstudioPage } from './../pages/findstudio/findstudio';
 import { SchedulePage } from './../pages/schedule/schedule';
 import { AboutusPage } from './../pages/aboutus/aboutus';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
 
 
 import { HttpModule } from '@angular/http'
@@ -36,7 +37,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

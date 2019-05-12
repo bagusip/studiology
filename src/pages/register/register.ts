@@ -1,8 +1,10 @@
+import { AngularFireDatabase,AngularFireList } from 'angularfire2/database';
 import { Component } from '@angular/core';
 import { AlertController,IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginPage } from '../login/login' ;
+import firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -12,8 +14,10 @@ import { LoginPage } from '../login/login' ;
 export class RegisterPage {
 
   user = {} as User;
+  users: AngularFireList<any>;
 
-  constructor(private alertCtrl: AlertController,private toastController : ToastController,public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth) {
+  constructor(afDatabase : AngularFireDatabase, private alertCtrl: AlertController,private toastController : ToastController,public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth) {
+    this.users = afDatabase.list('/users');
   }
 
   ionViewDidLoad() {
