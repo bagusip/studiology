@@ -20,6 +20,8 @@ import { AboutusPage } from './../pages/aboutus/aboutus';
 import { HttpModule } from '@angular/http'
 import { AngularFireAuth } from '@angular/fire/auth';
 
+import { GoogleMapComponent } from '../components/google-map/google-map';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -30,7 +32,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
     ProfilePage,
     FindstudioPage,
     SchedulePage,
-    AboutusPage
+    AboutusPage,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
