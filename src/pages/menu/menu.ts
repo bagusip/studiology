@@ -24,7 +24,7 @@ export class MenuPage {
   profile(){
     this.navCtrl.push(ProfilePage);
   }
-
+  
   findstudio(){
     this.navCtrl.push(FindstudioPage);
   }
