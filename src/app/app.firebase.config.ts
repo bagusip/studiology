@@ -1,8 +1,8 @@
 export const FIREBASE_CONFIG = {
-    apiKey: "AIzaSyBU-dlwpD1hI0tXOy_bzBvv8thlyGUJ8tY",
-    authDomain: "studiology-app.firebaseapp.com",
-    databaseURL: "https://studiology-app.firebaseio.com",
-    projectId: "studiology-app",
-    storageBucket: "studiology-app.appspot.com",
-    messagingSenderId: "967084710125"
+  apiKey: "AIzaSyByGlSViBcc3OokC-o1Qzew5i6ij_iwrFQ",
+  authDomain: "studiologyapp-72274.firebaseapp.com",
+  databaseURL: "https://studiologyapp-72274.firebaseio.com",
+  projectId: "studiologyapp-72274",
+  storageBucket: "studiologyapp-72274.appspot.com",
+  messagingSenderId: "1080297164218"
   };
