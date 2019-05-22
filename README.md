@@ -25,4 +25,5 @@ git pull origin master
 ## instalasi firebase
 ```
 npm install firebase angular fire2 --save
+
 ```
