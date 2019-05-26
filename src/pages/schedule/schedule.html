@@ -11,5 +11,104 @@
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf =" this.currentUser">
+    <form #f="ngForm">
+        <ion-list>
+           <ion-item>
+              <ion-icon name="person" color="chocolate" item-start></ion-icon>
+              <ion-input required type="text" [(ngModel)]="form.name" name="name" placeholder="Name"></ion-input>
+           </ion-item>  
 
+           <ion-item>
+              <ion-icon name="mail" color="chocolate" item-start></ion-icon>
+              <ion-input required type="text" [(ngModel)]="form.email" name="email" placeholder="Email"></ion-input>
+           </ion-item>
+         
+           <ion-item>
+              <ion-icon name="call" color="chocolate" item-start></ion-icon>
+              <ion-input required type="text" [(ngModel)]="form.phone" name="phone" placeholder="Phone"></ion-input>
+           </ion-item>
+
+           <ion-grid>
+              <ion-row>
+                <ion-col>
+                    <ion-label><b>Date</b></ion-label>
+                    <!--<ion-datetime displayFormat="MMMM/DD/YYYY"  [(ngModel)]="form.date" type="text" name="date" class="date"></ion-datetime>-->
+                    <ion-input type="text" name="Select Date"  [(ngModel)]="form.appointDate " palceholder="Date"></ion-input>
+                </ion-col>
+                <ion-col>
+                    <ion-label>Time</ion-label>
+                    <ion-datetime displayFormat="h:m:a"  [(ngModel)]="form.time" type="text" name="time" class="time"></ion-datetime>
+                    </ion-col>
+              </ion-row>
+           </ion-grid>
+
+            <ion-item>
+              <ion-textarea rows="2" type="text" id="textarea" [(ngModel)]="form.note" name="note"  placeholder="Note">
+              </ion-textarea>
+            </ion-item>
+
+        </ion-list>  
+     </form>  
+     <!-- this shows when error occur -->
+       <div class="error-message">
+          <ion-label color="danger" text-wrap><b>{{errorMessage}}</b></ion-label>
+       </div>
+     <button ion-button block color="chocolate" round  [disabled]="disableSubmit" (click)="sumitbooking()">Submit booking</button>
+
+  
+    </div> 
+
+
+    <div *ngIf ="!this.currentUser">
+        <div padding class="welcome auth-bg">
+            <!--logo-->
+            <div class="logo" text-center>  
+              <div class="inner">
+                <!--<ion-icon name="ios-pin-outline" color="primary"></ion-icon>-->
+                <h1 ion-text color="head">Bokk Appointment</h1>
+              </div>
+            </div>
+          
+            <!--slides-->
+            <ion-slides  loop="true" autoplay="3000">
+              <ion-slide>
+                <ion-icon name="lock" color="head"></ion-icon>
+                <p ion-text color="head">
+                 Login or create account
+                </p>
+              </ion-slide>
+              <ion-slide>
+                <ion-icon name="create" color="head"></ion-icon>
+                <p ion-text color="head">
+                   Book appointment
+                </p>
+              </ion-slide>
+              <ion-slide>
+                <ion-icon name="heart" color="head"></ion-icon>
+                <ion-icon name="smile" color="head"></ion-icon>
+                <ion-icon name="md-happy" color="head"></ion-icon>
+                <p ion-text color="head">
+                  Enjoy your service
+                </p>
+              </ion-slide>
+            </ion-slides>
+          
+            <!--buttons-->
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <button ion-button block color="head" (click)="goLogin()">
+                    Login
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button ion-button block color="head" outline (click)="goSignup()">
+                    Signup
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+    </div>
 </ion-content>

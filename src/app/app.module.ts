@@ -16,12 +16,18 @@ import { FindstudioPage } from './../pages/findstudio/findstudio';
 import { SchedulePage } from './../pages/schedule/schedule';
 import { AboutusPage } from './../pages/aboutus/aboutus';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
+import { BookProvider } from '../providers/booking';
+import { DataProvider} from '../providers/data';
+import { ServiceListProvider} from '../providers/service-list';
+import { Values } from '../providers/values';
+import { HttpClient,HttpClientModule } from '@angular/common/http';
+
+
 
 
 import { HttpModule } from '@angular/http'
 import { AngularFireAuth } from '@angular/fire/auth';
 
-import { GoogleMapComponent } from '../components/google-map/google-map';
 
 @NgModule({
   declarations: [
@@ -34,14 +40,15 @@ import { GoogleMapComponent } from '../components/google-map/google-map';
     FindstudioPage,
     SchedulePage,
     AboutusPage,
-    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,13 +58,17 @@ import { GoogleMapComponent } from '../components/google-map/google-map';
     RegisterPage,
     MenuPage,
     ProfilePage,
-    FindstudioPage,
+      FindstudioPage,
     SchedulePage,
     AboutusPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    BookProvider,  
+    DataProvider,
+    ServiceListProvider,
+    Values,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
