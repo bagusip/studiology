@@ -1,6 +1,6 @@
 import { MenuPage } from './../menu/menu';
 import { Component } from '@angular/core';
-import  { IonicPage, NavController, NavParams, LoadingController, AlertController,} from 'ionic-angular';
+import  { ToastController,IonicPage, NavController, NavParams, LoadingController, AlertController,} from 'ionic-angular';
 import { FormBuilder } from '@angular/forms';
 import firebase from 'firebase';
 import { BookProvider } from '../../providers/booking';
@@ -38,7 +38,7 @@ export class SchedulePage {
   serviceList: any;
   contat: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public bookProvider: BookProvider, public alertCtrl: AlertController, 
+  constructor(public toastController : ToastController, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public bookProvider: BookProvider, public alertCtrl: AlertController, 
     public loadingCtrl: LoadingController, public serviceListProvider: ServiceListProvider, public values:Values,  
     public dataProvider: DataProvider, public nav: NavController)  {
 
@@ -64,6 +64,11 @@ export class SchedulePage {
  });
 }  
 
+succesRegister = this.toastController.create({
+  message:"Pemesanan Berhasil",
+  duration:2000
+});
+
 stringGen(len){
   var text = " ";
   var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -77,9 +82,9 @@ sumitbooking(form, bookingId){
   let status = "pending";
   let comment = "Thank you, we have received your booking";
   let userID = firebase.auth().currentUser.uid;
-  this.bookProvider.submitbook( this.form.name, this.form.email, this.form.phone , this.form.appointDate , this.form.time, this.form.service, this.form.note, bookingNumber, status, comment, userID).then(()=>{
+  this.bookProvider.submitbook( this.form.name, this.form.email, this.form.phone , this.form.appointDate , this.form.time).then(()=>{
    this.userProfiles
-   this.nav.setRoot('MenuPage');
+   this.navCtrl.setRoot(MenuPage);
  });
 
 }

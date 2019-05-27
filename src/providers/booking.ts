@@ -44,7 +44,7 @@ export class BookProvider {
    * Send booking parameters to Admin server
    */
 
-  submitbook (name:String, email:String, phone: number, appointDate: any, time: any, service:string, note: string, bookingNumber, status: string, comment: string, userId){
+  submitbook (name:String, email:String, phone: number, appointDate: any, time: any){
 
     let d = new Date();
     let e = this.formatDate(d);
@@ -55,12 +55,8 @@ export class BookProvider {
       phone: phone,
       date: appointDate,
       time: time,
-      service: service,
-      note: note,
-      bookingNumber: bookingNumber,
-      status: status,
-      comment: comment,
-      uid: userId,
+      // service: service,
+      // note: note,
       dateTime: e,
       reverseOrder: 0 - Date.now()
     }).then( newOrder => {
