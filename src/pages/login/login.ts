@@ -1,3 +1,4 @@
+import { AdminPage } from './../admin/admin';
 import { Component } from '@angular/core';
 import { AlertController, IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { User } from '../../models/user';
@@ -42,7 +43,13 @@ async login(user: User){
         });
 // loader.present();
   console.log(this.user);
- 
+
+  if(this.user.email == "admin@admin.com" && this.user.password == "admin123"){
+      console.log("admin masuk");
+      this.alert('Welcome Admin');
+      this.navCtrl.setRoot(AdminPage);
+  }
+  else{
     this.afAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password)
     .then( data => {
       console.log('got some data', this.afAuth.auth.currentUser);
@@ -54,6 +61,7 @@ async login(user: User){
       this.alert(error.message);
     })
     console.log('would sign in with',this.user.email,this.user.password);
+  }
 }
 
   register(){

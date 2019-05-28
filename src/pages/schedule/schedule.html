@@ -29,6 +29,16 @@
               <ion-input required type="text" [(ngModel)]="form.phone" name="phone" placeholder="Phone"></ion-input>
            </ion-item>
 
+           <ion-item>
+  <ion-select [(ngModel)]="form.studio" multiple="true" name="studio" placeholder="Select studio">
+    <ion-option>Dream music studio</ion-option>
+    <ion-option>Purwacaraka Music Studio</ion-option>
+    <ion-option>37 Music Studio</ion-option>
+    <ion-option>Rynd Music</ion-option>
+    <ion-option>'Aristi Music Studio</ion-option>
+    <ion-option>Gilang Ramadhan Studio Band</ion-option>
+  </ion-select>
+           </ion-item>
            <ion-grid>
               <ion-row>
                 <ion-col>

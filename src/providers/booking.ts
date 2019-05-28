@@ -44,7 +44,7 @@ export class BookProvider {
    * Send booking parameters to Admin server
    */
 
-  submitbook (name:String, email:String, phone: number, appointDate: any, time: any){
+  submitbook (name:String, email:String, phone: number, appointDate: any,studio:any, time: any){
 
     let d = new Date();
     let e = this.formatDate(d);
@@ -55,6 +55,7 @@ export class BookProvider {
       phone: phone,
       date: appointDate,
       time: time,
+      studio: studio,
       // service: service,
       // note: note,
       dateTime: e,

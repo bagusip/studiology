@@ -34,6 +34,7 @@ export class SchedulePage {
   public addressBind;
   public userProfile: any;
   public user;
+  public studio: any;
   appointDate : any;
   serviceList: any;
   contat: any;
@@ -64,11 +65,14 @@ export class SchedulePage {
  });
 }  
 
-succesRegister = this.toastController.create({
-  message:"Pemesanan Berhasil",
-  duration:2000
-});
 
+alert(message: string) {
+  this.alertCtrl.create({
+    title: 'Info!',
+    subTitle: message,
+    buttons: ['OK']
+  }).present();
+}
 stringGen(len){
   var text = " ";
   var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -82,8 +86,9 @@ sumitbooking(form, bookingId){
   let status = "pending";
   let comment = "Thank you, we have received your booking";
   let userID = firebase.auth().currentUser.uid;
-  this.bookProvider.submitbook( this.form.name, this.form.email, this.form.phone , this.form.appointDate , this.form.time).then(()=>{
+  this.bookProvider.submitbook( this.form.name, this.form.email, this.form.phone , this.form.appointDate,this.form.studio , this.form.time).then(()=>{
    this.userProfiles
+   this.alert('Booking berhasil');
    this.navCtrl.setRoot(MenuPage);
  });
 

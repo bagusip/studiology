@@ -1,3 +1,4 @@
+import { BookingService } from './../providers/booking.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -22,7 +23,7 @@ import { ServiceListProvider} from '../providers/service-list';
 import { Values } from '../providers/values';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-
+import { AdminPage } from './../pages/admin/admin';
 
 
 
@@ -41,6 +42,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
     FindstudioPage,
     SchedulePage,
     AboutusPage,
+    AdminPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
     ProfilePage,
       FindstudioPage,
     SchedulePage,
-    AboutusPage
+    AboutusPage,
+    AdminPage
   ],
   providers: [
     StatusBar,
@@ -71,6 +74,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
     ServiceListProvider,
     Values,
     Geolocation,
+    BookingService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
