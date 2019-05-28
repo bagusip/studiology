@@ -1,6 +1,7 @@
 import { Component,ViewChild,ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+// import { file } from '@ionic-native/file/ngx';  
 
 /**
  * Generated class for the FindstudioPage page.
@@ -32,10 +33,7 @@ export class FindstudioPage {
 
   locate(){
     this.geolocation.getCurrentPosition().then((resp) => {
-      // resp.coords.latitude
-      // resp.coords.longitude
-      this.data = 'Lat: ' + resp.coords.latitude + ' <br>' + 'Lng: ' + resp.coords.longitude
-      console.log(this.data);
+      console.log(resp.coords.latitude,resp.coords.longitude);
      }).catch((error) => {
        console.log('Error getting location', error);
      });
