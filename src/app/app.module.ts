@@ -21,6 +21,7 @@ import { DataProvider} from '../providers/data';
 import { ServiceListProvider} from '../providers/service-list';
 import { Values } from '../providers/values';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 
@@ -69,6 +70,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
     DataProvider,
     ServiceListProvider,
     Values,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

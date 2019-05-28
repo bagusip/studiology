@@ -12,6 +12,10 @@
 
 <ion-content padding>
   <ion-content>
+      <ion-item>
+          <ion-label floating>Locate Me</ion-label>
+            <button ion-button full (click)="locate()">Get Current Location</button>  
+        </ion-item>
     <ion-item>
       <ion-label floating>Start</ion-label>
         <ion-input type="text" [(ngModel)]="start"></ion-input>

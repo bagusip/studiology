@@ -1,5 +1,6 @@
 import { Component,ViewChild,ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 /**
  * Generated class for the FindstudioPage page.
@@ -16,19 +17,33 @@ declare var google;
   templateUrl: 'findstudio.html',
 })
 export class FindstudioPage {
-
+  lat: any;
+  lng: any;
   @ViewChild('map') mapElement: ElementRef;
   map: any;
   start = '';
   end = '';
   directionsService = new google.maps.DirectionsService;
   directionsDisplay = new google.maps.DirectionsRenderer;
+  data:string = '';
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public platform : Platform, public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation) {
   }
 
+  locate(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+      this.data = 'Lat: ' + resp.coords.latitude + ' <br>' + 'Lng: ' + resp.coords.longitude
+      console.log(this.data);
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+  }
+  
+
   ionViewDidLoad(){
+    // this.obtainPosition();
     this.initMap();
   }
 
@@ -54,5 +69,8 @@ export class FindstudioPage {
       }
     });
   }
+
+
+
 
 }

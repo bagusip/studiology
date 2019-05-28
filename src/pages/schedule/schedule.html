@@ -34,11 +34,11 @@
                 <ion-col>
                     <ion-label><b>Date</b></ion-label>
                     <!--<ion-datetime displayFormat="MMMM/DD/YYYY"  [(ngModel)]="form.date" type="text" name="date" class="date"></ion-datetime>-->
-                    <ion-input type="text" name="Select Date"  [(ngModel)]="form.appointDate " palceholder="Date"></ion-input>
+                    <ion-datetime displayFormat="MM:DD:YY"  [(ngModel)]="form.appointDate" type="text" name="Select Date"  palceholder="DD/MM/YYYY"></ion-datetime>
                 </ion-col>
                 <ion-col>
                     <ion-label>Time</ion-label>
-                    <ion-datetime displayFormat="h:m:a"  [(ngModel)]="form.time" type="text" name="time" class="time"></ion-datetime>
+                    <ion-datetime displayFormat="h:m:a"  [(ngModel)]="form.time" type="text" name="time" class="H/M"></ion-datetime>
                     </ion-col>
               </ion-row>
            </ion-grid>
