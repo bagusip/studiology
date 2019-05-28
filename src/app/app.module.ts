@@ -1,3 +1,4 @@
+import { BookingService } from './../providers/booking.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -15,12 +16,20 @@ import { ProfilePage } from './../pages/profile/profile';
 import { FindstudioPage } from './../pages/findstudio/findstudio';
 import { SchedulePage } from './../pages/schedule/schedule';
 import { AboutusPage } from './../pages/aboutus/aboutus';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
+import { BookProvider } from '../providers/booking';
+import { DataProvider} from '../providers/data';
+import { ServiceListProvider} from '../providers/service-list';
+import { Values } from '../providers/values';
+import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { AdminPage } from './../pages/admin/admin';
+
 
 
 import { HttpModule } from '@angular/http'
 import { AngularFireAuth } from '@angular/fire/auth';
 
-import { GoogleMapComponent } from '../components/google-map/google-map';
 
 @NgModule({
   declarations: [
@@ -33,13 +42,16 @@ import { GoogleMapComponent } from '../components/google-map/google-map';
     FindstudioPage,
     SchedulePage,
     AboutusPage,
-    GoogleMapComponent
+    AdminPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,13 +61,20 @@ import { GoogleMapComponent } from '../components/google-map/google-map';
     RegisterPage,
     MenuPage,
     ProfilePage,
-    FindstudioPage,
+      FindstudioPage,
     SchedulePage,
-    AboutusPage
+    AboutusPage,
+    AdminPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    BookProvider,  
+    DataProvider,
+    ServiceListProvider,
+    Values,
+    Geolocation,
+    BookingService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

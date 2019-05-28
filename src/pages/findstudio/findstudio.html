@@ -11,5 +11,18 @@
 </ion-header>
 
 <ion-content padding>
-  <google-map></google-map>
+  <ion-content>
+    <!-- <ion-item>
+      <ion-label floating>Start</ion-label>
+        <ion-input type="text" [(ngModel)]="start"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>End</ion-label>
+        <ion-input type="text" [(ngModel)]="end"></ion-input>
+      </ion-item>
+      <ion-item>
+      <button ion-button full (click)="calculateAndDisplayRoute()">Get Direction</button>
+      </ion-item> -->
+      <div #map id="map"></div>
+  </ion-content>
 </ion-content>
