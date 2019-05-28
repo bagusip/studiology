@@ -5,6 +5,7 @@ import { User } from '../../models/user';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginPage } from '../login/login' ;
 import firebase from 'firebase';
+import {Md5} from 'ts-md5/dist/md5';
 
 @IonicPage()
 @Component({
@@ -60,13 +61,13 @@ export class RegisterPage {
     phone_number : string,
     email : string,
     password : string){
-
+    
     return this.users.push({
       first_name: first_name,
       last_name: last_name,
       phone_number: phone_number,
       email:email,
-      password: password,
+      password: Md5.hashStr(password),
     }).then( newOrder => {
       this.users.child(newOrder.key).child('email').set(newOrder.key);
     });

@@ -28,5 +28,8 @@ npm install --save firebase@5.10.0
 npm install --save angularfire2@5.1.2
 ionic cordova plugin add cordova-plugin-geolocation
 npm install @ionic-native/geolocation
+npm install @ionic-native/date-picker --save
+npm install @ionic-native/keyboard --save
+npm i ts-md5
 
 ```
